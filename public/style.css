@@ -1,0 +1,351 @@
+/* corpo */
+html {
+    scroll-padding-top: 100px; /* Define a altura do seu cabeçalho */
+    scroll-behavior: smooth; /* Garante a rolagem suave via CSS */
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('patas_fundo.jpg');
+    background-position: top left;
+    background-repeat: repeat;
+    background-size: 250px; 
+    background-color: #F8F8FF;
+    margin: 0;
+    padding-top: 100px;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* ========== Header fixo (barra com logo + nav) ========== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background-color: #8B4513; 
+    z-index: 1000;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+header .logo {
+    height: 70px;
+    width: auto;
+    border-radius: 50%;
+}
+header nav {
+    display: flex;
+    gap: 30px; 
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 10px;
+    max-width: 70%;
+    justify-content: flex-end;
+}
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+header nav a:hover {
+    color: #2E8B57;
+}
+
+/* HERO / BANNER com imagem de fundo */
+.hero {
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("banner_ong.jpeg") center/cover no-repeat;
+    background-attachment: scroll;
+}
+.hero .hero-content {
+    max-width: 1000px;
+    width: 100%;
+    color: #fff;
+}
+.hero h1{
+    margin: 0 0 10px;
+    font-size: clamp(28px, 5vw, 56px);
+    color: #ffffff;
+    text-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+.hero h1:hover {
+    color: #2E8B57;
+}
+
+/* ESTILO GERAL DOS TÍTULOS DE SEÇÃO */
+#missao h2, #contato h2, #como-ajudar h2, #animais h2, #depoimentos h2, #formularios h2 {
+    font-size: 24px;
+    color: #8B4513;
+    margin-bottom: 20px;
+}
+
+/* ESTILO DO BOX DE FUNDO PARA TÍTULOS ESPECÍFICOS */
+#como-ajudar h2, #animais h2, #formularios h2 {
+    background-color: #F0FFF0;
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Rodapé */
+footer {
+    background-color: #8B4513;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+}
+
+/* Seção Missão */
+#missao {
+    padding: 30px 16px;
+    background: #F0FFF0; 
+    text-align: center;
+    margin: 40px auto;
+    max-width: 800px;
+    border-radius: 12px;
+}
+
+/* Seção Como Ajudar */
+#como-ajudar {
+    padding: 40px 16px;
+    background: linear-gradient(to bottom, #F0FFF0, #E0EEE0);
+    text-align: center;
+    margin: 40px auto;
+}
+/* CORREÇÃO DO LAYOUT EMPILHADO */
+.servicos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px; /* Espaço do título */
+}
+.servico {
+    background: white; 
+    border-radius: 12px;
+    padding: 40px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+.servico:hover {
+    transform: scale(1.05);
+}
+.servico h3 {
+    color: #2E8B57;
+    margin-bottom: 15px;
+}
+
+/* Contato */
+#contato {
+    max-width: 900px;
+    margin: 40px auto; 
+    background: #F0FFF0; 
+    padding: 30px 16px;
+    border-radius: 12px; 
+}
+/* REMOVIDO .contact-info-wrapper para simplificar */
+
+/* Galeria (Animais) */
+#animais {
+    padding: 40px 16px; 
+    text-align: center; 
+    background-color: #F0FFF0;
+    max-width: 1200px; /* Centraliza a seção */
+    margin: 40px auto;
+}
+#animais .galeria-container {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+    max-width: 1200px; 
+    margin: 30px auto 0 auto; 
+}
+#animais .galeria-container .item {
+    background: #FFFFFF; 
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between; 
+}
+#animais .galeria-container .item img {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+#animais .galeria-container .item p {
+    color: #8B4513;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1;
+    /* CORRIGIDO: Removido o estilo de 'título' do parágrafo */
+}
+#animais .galeria-container .item .btn-adotar {
+    background-color: #2E8B57;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Depoimentos */
+#depoimentos {
+    padding: 80px 16px; 
+    background: linear-gradient(to bottom, #F0FFF0, #E0EEE0); 
+    text-align: center;
+    max-width: 1000px; 
+    margin: 40px auto; 
+    border-radius: 12px; 
+}
+.avaliacoes-container {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 30px; 
+    max-width: 1200px; 
+    margin: 40px auto 0 auto; 
+}
+.avaliacao-card {
+    background: #FFFFFF; 
+    border-radius: 15px; 
+    padding: 30px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); 
+    text-align: center;
+    position: relative; 
+    margin: 0; 
+}
+.avaliacao-card::before {
+    content: "“"; 
+    font-family: Arial, sans-serif; 
+    font-size: 60px; 
+    color: rgba(139, 69, 19, 0.3); 
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    z-index: 1;
+}
+.avaliacao-card .comentario {
+    font-style: italic;
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 15px;
+    position: relative; 
+    z-index: 2;
+}
+.avaliacao-card .estrelas {
+    color: #FFD700; 
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.avaliacao-card .cliente {
+    font-weight: bold;
+    color: #8B4513;
+    font-size: 15px;
+}
+
+/* Formulários */
+#formularios {
+    padding: 40px 16px;
+    background: #F0FFF0;
+    text-align: center;
+    margin: 40px auto;
+    border-radius: 12px;
+}
+.forms-container {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+}
+.form-card {
+    background: #FFFFFF;
+    border: 2px solid #2E8B57;
+    border-radius: 12px;
+    padding: 30px;
+    width: 90%;
+    max-width:500px;
+    margin: 0 auto 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #8B4513;
+    margin-bottom: 5px;
+}
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box; 
+}
+.form-card button {
+    background-color: #2E8B57;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+.form-card button:hover {
+    background-color: #3CB371;
+}
+
+/* Botões Flutuantes */
+.floating-buttons-container {
+    position: fixed; 
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column; 
+}
+.floating-btn {
+    background: none; 
+    border: none;
+    padding: 0; 
+    line-height: 0;
+    border-radius: 0; 
+}
+.floating-btn img {
+    width: 60px;
+    height: auto;
+    transition: transform 0.2s;
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.3));
+}
+.floating-btn img:hover {
+    transform: scale(1.1);
+}
+.instagram-float {
+    margin-bottom: 15px;
+}
