@@ -1,6 +1,6 @@
 <?php
 
-require_once "config.php"; //Inserir o arquivo config.php
+require_once "../config/config.php"; //Inserir o arquivo config.php
 
     class Usuarios {
         public static function inserir( $dados ) {
