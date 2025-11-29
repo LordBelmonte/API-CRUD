@@ -1,6 +1,11 @@
 <?php
 
-require_once "../config/config.php"; //Inserir o arquivo config.php
+// Linha 3: Define o caminho absoluto para a pasta raiz do projeto.
+$rootPath = dirname(dirname(dirname(__FILE__))); 
+
+// Usa $rootPath para incluir o arquivo de configuração,
+// garantindo que o separador de diretório seja o correto para o SO.
+require_once $rootPath . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'config.php';
 
     class Usuarios {
         public static function inserir( $dados ) {

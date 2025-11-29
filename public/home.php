@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instituto Eu Sou Bicho - Adoção e Cuidado Animal</title>
     <link rel="stylesheet" href="style.css?v=final">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </head>
 <body >
     <header>
@@ -233,7 +236,44 @@
         </a>
     </div>
     
-    <script src=script.js></script>
+    <script src=script.js> 
+
+        //Garante que a página seja carregada antes de executar os comando Jquery
+        $(document).ready( function () { 
+            carregaDadosApi();
+        }) ;
+
+        function carregaDadosApi() {
+            $.ajax( { 
+                url : 'http://localhost/OngDogs/public/router.php/api/usuarios' , //endpoint da API
+                method : 'GET'  ,
+                dataType : 'json' ,
+                success : function ( respostaApi  ) { 
+                    const tabela = $('#tabelaDados') ;
+                    if( respostaApi.erro ) {
+                        tabela.append( `<tr><td colspan="4" style="color: red;"> ${ respostaApi.mensagem } </td></tr>` ) ;
+                    } else if ( respostaApi.dados.length === 0 ) {
+                        tabela.append( `<tr><td colspan="4" style="color: red;"> Tabela vazia </td></tr>` ) ;
+                    } else {
+                        respostaApi.dados.forEach( function ( item ) {  
+                            tabela.append( `<tr>
+                                    <td> ${item.codigo} </td>
+                                    <td> ${item.nome} </td>
+                                    <td> ${item.email} </td>
+                                    <td> ${item.telefone} </td>
+                                </tr>
+                            ` ) ;
+                        }) ;
+                    }
+
+                } , 
+                error : function () { 
+                    $('#tabelaDados').html( '<tr><td colspan="4" style="color: red;">Erro ao carregar a API</td></tr>' ) ; 
+                }
+            } ) ;
+        }
+
+    </script>
 
 </body>
 </html>
